@@ -13,7 +13,7 @@ country = random.choice(countries)
 lg.info(f'Country chosen: {country}')
 
 client = OpenAI(
-    api_key="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",
+    GROQ_API_KEY = os.environ.get("GROQ_API_KEY"),
     base_url="https://api.groq.com/openai/v1" 
 )
 
@@ -36,7 +36,6 @@ lg.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
-#gsnzokruzvninzbh
 
 #1 sender and receiver credentials
 sender_email = os.environ.get('SENDER_EMAIL')
