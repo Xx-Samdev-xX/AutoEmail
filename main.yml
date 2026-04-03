@@ -1,0 +1,13 @@
+name: Daily Mail Automation
+
+on:
+  schedule:
+   - cron: '08 * * *'
+  workflow_dispatch:
+
+jobs:
+  build: #name of job idk...
+    runs-on: ubuntu-latest
+    steps:
+      -name: first-steps
+      run: echo "Hello World"
