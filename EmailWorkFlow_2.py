@@ -14,7 +14,7 @@ lg.info(f'Country chosen: {country}')
 
 client = OpenAI(
     api_key = os.environ.get("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1" 
+    base_url=os.environ.get("URL_PAGE")
 )
 
 def generate_message(country):
