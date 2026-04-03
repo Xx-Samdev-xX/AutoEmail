@@ -1,13 +1,25 @@
-name: Daily Mail Automation
+name: Daily Email Automation
 
 on:
   schedule:
-   - cron: '08 * * *'
-  workflow_dispatch:
+    - cron: '0 8 * * *' # Runs at 8:00 AM UTC every day
+  workflow_dispatch: # Lets you run it manually with a button click
 
 jobs:
-  build: #name of job idk...
-    runs-on: windows-latest
+  build:
+    runs-on: ubuntu-latest
     steps:
-      -name: first-steps
-      run: echo "Hello World"
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run script
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        run: python Emailworkflow.py
+
