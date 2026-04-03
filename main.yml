@@ -3,7 +3,7 @@ name: Daily Email Automation
 on:
   schedule:
     - cron: '0 8 * * *' # Runs at 8:00 AM UTC every day
-  workflow_dispatch: # Lets you run it manually with a button click
+  workflow_dispatch:
 
 jobs:
   build:
